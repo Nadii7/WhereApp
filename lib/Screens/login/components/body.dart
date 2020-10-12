@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:whereapp_flutter/Screens/home/home.dart';
 import 'package:whereapp_flutter/Widgets/default_button.dart';
+import 'package:whereapp_flutter/Widgets/map_markers.dart';
 import 'package:whereapp_flutter/constants.dart';
 
 class Body extends StatelessWidget {

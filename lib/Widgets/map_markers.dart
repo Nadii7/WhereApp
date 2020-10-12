@@ -10,7 +10,12 @@ class UsersDots extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           SvgPicture.asset(
-            "assets/images/circle.svg",
+            "assets/images/user2.svg",
+            height: 104,
+            width: 102,
+          ),
+          SvgPicture.asset(
+            "assets/images/user.svg",
             height: 100,
             width: 100,
           ),
@@ -19,28 +24,31 @@ class UsersDots extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               children: [
                 // Avatar here
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(40.0),
-                  child: Image.asset(
-                    "assets/images/avatar.jpeg",
-                    fit: BoxFit.cover,
-                    width: 80,
-                    height: 80,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10, right: 2),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(40.0),
+                    child: Image.asset(
+                      "assets/images/avatar.jpeg",
+                      fit: BoxFit.cover,
+                      width: 75,
+                      height: 75,
+                    ),
                   ),
                 ),
                 // Online Dot Here
                 Container(
                   alignment: Alignment.center,
-                  margin: const EdgeInsets.only(left: 2),
-                  width: 20,
-                  height: 20,
+                  margin: const EdgeInsets.only(left: 10, bottom: 10),
+                  width: 15,
+                  height: 15,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
                     Icons.circle,
-                    size: 15,
+                    size: 13,
                     color: Color(0xffA0C62D),
                   ),
                 )
@@ -61,10 +69,15 @@ class PlacesDots extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Icon(
-            Icons.chat_bubble,
-            color: Colors.white,
-            size: 60,
+          SvgPicture.asset(
+            "assets/images/place2.svg",
+            height: 53,
+            width: 52,
+          ),
+          SvgPicture.asset(
+            "assets/images/place.svg",
+            height: 50,
+            width: 50,
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),

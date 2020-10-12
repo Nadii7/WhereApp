@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.0" width="225.000000pt" height="225.000000pt" viewBox="0 0 225.000000 225.000000" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <circle style="fill: rgb(255, 255, 255);" cx="100" cy="100" r="68.598"/>
-  <path d="M 106.44 201.31 L 127.427 260.834 L 85.452 260.834 L 106.44 201.31 Z" style="fill: rgb(255, 255, 255);" transform="matrix(0.492316, -0.870417, 0.755146, 0.696114, -139.005737, 77.463188)" bx:shape="triangle 85.452 201.31 41.975 59.524 0.5 0 1@f681a026"/>
+<svg width="140" height="154" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="156" width="142" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle stroke="#000000" stroke-opacity="0" id="svg_1" fill="#ffffff" r="68.598" cy="68.598" cx="68.598"/>
+  <path id="svg_2" fill="#ffffff" d="m34.41482,94.95071l55.28155,23.16805l-20.66496,36.53575l-34.61658,-59.7038z"/>
+ </g>
 </svg>
