@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:whereapp_flutter/Widgets/map_widget.dart';
 import 'package:whereapp_flutter/constants.dart';
 
@@ -13,6 +14,11 @@ class AddPlace extends StatefulWidget {
 
 class _AddPlaceState extends State<AddPlace> {
   var _expanded = false;
+  final List<Map<String, String>> dataList = [
+    {'title': 'المنزل', 'icon': "assets/icons/home.svg"},
+    {'title': 'المدرسة', 'icon': "assets/icons/school.svg"},
+    {'title': 'العمل', 'icon': "assets/icons/work.svg"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +33,8 @@ class _AddPlaceState extends State<AddPlace> {
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-                topRight: Radius.circular(50),
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               )),
           child: Column(
             textDirection: TextDirection.rtl,
@@ -38,11 +44,14 @@ class _AddPlaceState extends State<AddPlace> {
               Center(
                 child: Container(
                   height: 8,
-                  width: 100,
+                  width: 75,
                   decoration: BoxDecoration(
                       color: Colors.black12.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(20)),
                 ),
+              ),
+              SizedBox(
+                height: 15,
               ),
               // Title
               Padding(
@@ -51,7 +60,7 @@ class _AddPlaceState extends State<AddPlace> {
                 child: Text(
                   "إضافة مكان جديد",
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 18,
                     color: kTextColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -66,10 +75,22 @@ class _AddPlaceState extends State<AddPlace> {
                   style:
                       TextStyle(color: kTextColor, fontWeight: FontWeight.bold),
                 ),
-                subtitle: Text(
-                  "أدخل اسم المكان",
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(color: kPrimaryLightColor),
+                subtitle: Column(
+                  children: [
+                    TextField(
+                      textDirection: TextDirection.rtl,
+                      cursorColor: kPrimaryColor,
+                      decoration: InputDecoration(
+                        hintText: "أدخل اسم المكان",
+                        // textDirection: TextDirection.rtl,
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          color: kPrimaryColor.withOpacity(0.3),
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Divider(
@@ -87,22 +108,46 @@ class _AddPlaceState extends State<AddPlace> {
                   style:
                       TextStyle(color: kTextColor, fontWeight: FontWeight.bold),
                 ),
-                subtitle: Text(
-                  "رمز المكان يستخدم للتعبير عن المكان",
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                    color: kPrimaryLightColor,
+                subtitle: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    textDirection: TextDirection.rtl,
+                    children: [
+                      new DropdownButtonFormField(
+                        icon: Icon(Icons.expand_more),
+                        decoration: InputDecoration(
+                          alignLabelWithHint: true,
+                          hintText: "رمز المكان يستخدم للتعبير عن المكان",
+                          hintStyle: TextStyle(
+                            color: kPrimaryColor.withOpacity(0.3),
+                            fontSize: 12,
+                          ),
+                          border: InputBorder.none,
+                        ),
+                        items: dataList.map((e) {
+                          return new DropdownMenuItem<Map<String, String>>(
+                            value: e,
+                            child: Container(
+                              child: Row(
+                                textDirection: TextDirection.rtl,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  new Text(
+                                    e['title'],
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                  new SvgPicture.asset(e['icon']),
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (_) {},
+                      ),
+                    ],
                   ),
-                ),
-                leading: IconButton(
-                  alignment: Alignment.centerLeft,
-                  icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
-                  color: kTextColor,
-                  onPressed: () {
-                    setState(() {
-                      _expanded = !_expanded;
-                    });
-                  },
                 ),
               ),
             ],
@@ -129,9 +174,9 @@ class _AddPlaceState extends State<AddPlace> {
         // Add Button
         Container(
           width: double.infinity,
-          height: 80,
+          height: 65,
           color: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 10),
           child: GestureDetector(
             // on Tap Button
             onTap: widget.onPressed,
@@ -145,7 +190,7 @@ class _AddPlaceState extends State<AddPlace> {
                     "حفظ المكان",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold),
                   ),
                 )),

@@ -6,7 +6,7 @@ class DefaultActionButton extends StatelessWidget {
   final bool isClicked;
   final Function onPressed;
 
-  const DefaultActionButton({Key key,@required this.isClicked, this.onPressed})
+  const DefaultActionButton({Key key, @required this.isClicked, this.onPressed})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class DefaultActionButton extends StatelessWidget {
         child: IconButton(
             icon:
                 Icon(isClicked ? Icons.close : Icons.add, color: Colors.white),
+            iconSize: 30,
             enableFeedback: true,
             onPressed: onPressed),
       ),

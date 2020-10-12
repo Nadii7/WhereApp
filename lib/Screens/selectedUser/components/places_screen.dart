@@ -26,8 +26,8 @@ class PlacesScreen extends StatelessWidget {
       children: [
         // Map
         Container(
-          child: MapPage(),
-        ),
+            child: MapPage(),
+            ),
         // Places List
         Row(
           textDirection: TextDirection.rtl,
@@ -35,9 +35,9 @@ class PlacesScreen extends StatelessWidget {
           children: [
             // Add Button
             Container(
-              width: 100,
-              height: 100,
-              margin: const EdgeInsets.only(bottom: 40, left: 10, right: 20),
+              width: 75,
+              height: 75,
+              margin: const EdgeInsets.only(bottom: 40, right: 20),
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -52,9 +52,9 @@ class PlacesScreen extends StatelessWidget {
                 ],
               ),
               child: FlatButton(
-                height: 80,
+                height: 75,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
+                  borderRadius: BorderRadius.circular(37.5),
                 ),
                 // on Tap Add Button Function
                 onPressed: () {
@@ -63,8 +63,8 @@ class PlacesScreen extends StatelessWidget {
                     context: context,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(50),
-                            topRight: Radius.circular(50))),
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
                     isScrollControlled: true,
                     builder: (context) => SingleChildScrollView(
                       child: AddPlace(
@@ -78,7 +78,7 @@ class PlacesScreen extends StatelessWidget {
                   child: Icon(
                     Icons.add,
                     color: kPrimaryColor,
-                    size: 45,
+                    size: 30,
                   ),
                 ),
               ),
@@ -86,7 +86,7 @@ class PlacesScreen extends StatelessWidget {
             //List
             Expanded(
               child: Container(
-                height: 100,
+                height: 75,
                 margin: const EdgeInsets.only(bottom: 40),
                 alignment: Alignment.centerLeft,
                 child: ListView.builder(

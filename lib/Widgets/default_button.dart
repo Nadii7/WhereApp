@@ -19,7 +19,7 @@ class DefaultButton extends StatelessWidget {
     return SizedBox(
       width: 320,
       child: FlatButton(
-          height: 60,
+          height: 55,
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
@@ -37,7 +37,7 @@ class DefaultButton extends StatelessWidget {
                   width: 30,
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 30,
                 ),
                 // Text
                 SizedBox(

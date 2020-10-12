@@ -80,21 +80,22 @@ class CircularButton extends StatelessWidget {
             // Icon
             Container(
               decoration: BoxDecoration(shape: BoxShape.circle),
-              width: 25,
-              height: 25,
+              width: 20,
+              height: 20,
               child: SvgPicture.asset(
                 icon,
                 color: kPrimaryColor,
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 6,
             ),
             // Text
             Text(
               text,
               textAlign: TextAlign.center,
-              style: TextStyle(color: kTextColor, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: kTextColor, fontSize: 12, fontWeight: FontWeight.bold),
             )
           ],
         ),

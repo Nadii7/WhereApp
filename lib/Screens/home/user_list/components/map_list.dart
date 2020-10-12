@@ -24,37 +24,37 @@ class MapListPage extends StatelessWidget {
             title: Text(
               "عدي عاطف",
               textDirection: TextDirection.rtl,
-              style: TextStyle(
-                color: kPrimaryColor,
-              ),
+              style: TextStyle(color: kPrimaryColor, fontSize: 14),
             ),
             // City
             subtitle: Text(
               "القاهرة",
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                color: kPrimaryLightColor,
+                color: kTextColor.withOpacity(0.3),
+                fontSize: 12,
               ),
             ),
             // Icons
-            leading: SizedBox(
-              width: 60,
-              child: Center(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/icons/a_notificatin.svg",
-                      height: 20,
-                    ),
-                    Spacer(),
-                    SvgPicture.asset(
-                      "assets/icons/locate.svg",
-                      height: 20,
-                    ),
-                  ],
-                ),
+            leading: Container(
+              height: double.infinity,
+              width: 50,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SvgPicture.asset(
+                    "assets/icons/a_notificatin.svg",
+                    height: 15,
+                    width: 15,
+                  ),
+                  SizedBox(width: 15),
+                  SvgPicture.asset(
+                    "assets/icons/locate.svg",
+                    height: 10,
+                    width: 15,
+                  ),
+                ],
               ),
             ),
             // Avatar and Online Dot
@@ -84,7 +84,7 @@ class MapListPage extends StatelessWidget {
                     child: Icon(
                       Icons.circle,
                       size: 10,
-                      color: Colors.green,
+                      color: Color(0xffA0C62D),
                     ),
                   )
                 ],

@@ -51,7 +51,7 @@ class _HistoryScreenState extends State<HistoryScreen>
       width: double.infinity,
       height: 100,
       color: Colors.white,
-      padding: EdgeInsets.only(bottom: 15, left: 8, right: 8),
+      padding: EdgeInsets.only(bottom: 15, left: 11, right: 11),
       child: Column(
         children: [
           Row(
@@ -60,9 +60,11 @@ class _HistoryScreenState extends State<HistoryScreen>
             children: [
               //first Data picker
               FlatButton(
+                height: 24,
+                minWidth: 100,
                 onPressed: () => _selectDate(context),
                 color: kBgColor,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 child: Row(
@@ -92,7 +94,8 @@ class _HistoryScreenState extends State<HistoryScreen>
                     IconButton(
                         icon: SvgPicture.asset(
                           "assets/icons/previous.svg",
-                          height: 30,
+                          height: 14,
+                          width: 16,
                         ),
                         onPressed: () {
                           controller.stop();
@@ -101,7 +104,8 @@ class _HistoryScreenState extends State<HistoryScreen>
                     IconButton(
                         icon: SvgPicture.asset(
                           "assets/icons/play.svg",
-                          height: 30,
+                          height: 17,
+                          width: 12,
                         ),
                         onPressed: () {
                           controller.forward();
@@ -110,7 +114,8 @@ class _HistoryScreenState extends State<HistoryScreen>
                     IconButton(
                         icon: SvgPicture.asset(
                           "assets/icons/next.svg",
-                          height: 30,
+                          height: 14,
+                          width: 16,
                         ),
                         onPressed: () {
                           controller.repeat();
@@ -120,9 +125,11 @@ class _HistoryScreenState extends State<HistoryScreen>
               ),
               //Second Data picker
               FlatButton(
+                height: 24,
+                minWidth: 100,
                 onPressed: () => _selectDate(context),
                 color: kBgColor,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 child: Row(
@@ -149,7 +156,7 @@ class _HistoryScreenState extends State<HistoryScreen>
           ),
           // Progress Bar
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 8),
+            margin: EdgeInsets.symmetric(horizontal: 5.5),
             child: LinearProgressIndicator(
               value: animation.value,
               backgroundColor: kPrimaryLightColor,

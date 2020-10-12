@@ -32,7 +32,9 @@ class DefaultBottomBar extends StatelessWidget {
         BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new SvgPicture.asset("assets/icons/users.svg"),
+              child: new SvgPicture.asset(
+                "assets/icons/users.svg",
+              ),
             ),
             label: "المستخدمين"),
       ],

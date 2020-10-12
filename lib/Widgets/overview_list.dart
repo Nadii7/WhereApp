@@ -24,7 +24,7 @@ class OverViewList extends StatelessWidget {
             textDirection: TextDirection.rtl,
             style: TextStyle(
               color: kTextColor,
-              fontSize: 16.0,
+              fontSize: 14.0,
             ),
           ),
           // suptitle
@@ -32,7 +32,7 @@ class OverViewList extends StatelessWidget {
             subtitle,
             textDirection: TextDirection.rtl,
             style: TextStyle(
-              color: kPrimaryLightColor,
+              color: kPrimary2Color.withOpacity(0.3),
               fontSize: 12.0,
             ),
           ),
@@ -49,7 +49,7 @@ class OverViewList extends StatelessWidget {
         Divider(
           indent: 20,
           endIndent: 20,
-          height: 1.0,
+          height: 1.4,
           color: kPrimaryLightColor,
         ),
       ],

@@ -36,11 +36,11 @@ class _HomeState extends State<Home> {
           // Bottom Navigation Page
           new UserScreen(),
           // The Transpert Screen
-          IgnorePointer(
+          IgnorePointer(            
             child: Container(
               // comment or change to transparent color
               color: isClicked
-                  ? Colors.white.withOpacity(0.9)
+                  ? Colors.white
                   : Colors.white.withOpacity(0.0),
               height: double.infinity,
               width: double.infinity,

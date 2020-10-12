@@ -15,10 +15,10 @@ class PlacesItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 80,
-        width: 120,
+        height: 75,
+        width: 110,
         padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(5),
+        margin: const EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -36,6 +36,8 @@ class PlacesItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               icon,
+              width: 18,
+              height: 18,
             ),
             SizedBox(
               height: 8,
@@ -44,7 +46,7 @@ class PlacesItem extends StatelessWidget {
               text,
               style: TextStyle(
                 color: kTextColor,
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             )
           ],

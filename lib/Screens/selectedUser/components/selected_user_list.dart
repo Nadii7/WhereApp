@@ -54,8 +54,7 @@ class _SelectedUserListState extends State<SelectedUserList>
               child: TabBarView(
                 controller: _controller,
                 children: [
-                  Container(
-                      child: MapPage()),
+                  Container(child: MapPage()),
                   PlacesScreen(),
                   OverviewScreen(),
                 ],
@@ -63,7 +62,7 @@ class _SelectedUserListState extends State<SelectedUserList>
             ),
             // App Bar
             new Container(
-              height: 170,
+              height: 150,
               width: double.infinity,
               child: Stack(
                 alignment: Alignment.bottomCenter,
@@ -74,117 +73,112 @@ class _SelectedUserListState extends State<SelectedUserList>
                     subtitle: supTitle,
                   ),
                   // Tab BAR
-                  Container(
-                    width: 376,
-                    height: 50,
-                    decoration: new BoxDecoration(
-                      gradient: kPrimaryGradientColor,
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 4),
-                        )
-                      ],
-                    ),
-                    // Custom Tab Widget
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      textDirection: TextDirection.rtl,
-                      children: [
-                        // First Tab
-                        FlatButton(
-                          height: 50,
-                          minWidth: 120,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(25),
-                            topRight: Radius.circular(25),
-                          )),
-                          color: _controller.index == 2 ? null : Colors.white,
-                          child: Text(
-                            titleList[2],
-                            style: TextStyle(
-                              color: _controller.index == 2
-                                  ? Colors.white
-                                  : kTextColor,
-                              fontSize: 16.0,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Container(
+                      width: 380,
+                      height: 35,
+                      decoration: new BoxDecoration(
+                        gradient: kPrimaryGradientColor,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      // Custom Tab Widget
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        textDirection: TextDirection.rtl,
+                        children: [
+                          // First Tab
+                          FlatButton(
+                            height: 35,
+                            minWidth: 127,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(25),
+                              topRight: Radius.circular(25),
+                            )),
+                            color: _controller.index == 2 ? null : Colors.white,
+                            child: Text(
+                              titleList[2],
+                              style: TextStyle(
+                                color: _controller.index == 2
+                                    ? Colors.white
+                                    : kTextColor,
+                                fontSize: 13.0,
+                              ),
                             ),
+                            onPressed: () {
+                              if (_controller.index == 1 ||
+                                  _controller.index == 0) {
+                                setState(() {
+                                  _controller.index = 2;
+                                  supTitle = titleList[_controller.index];
+                                });
+                              }
+                            },
                           ),
-                          onPressed: () {
-                            if (_controller.index == 1 ||
-                                _controller.index == 0) {
-                              setState(() {
-                                _controller.index = 2;
-                                supTitle = titleList[_controller.index];
-                              });
-                            }
-                          },
-                        ),
-                        // Second Tab
-                        FlatButton(
-                          height: 50,
-                          minWidth: 120,
-                          color: _controller.index == 1 ? null : Colors.white,
-                          child: Text(
-                            titleList[1],
-                            style: TextStyle(
-                              color: _controller.index == 1
-                                  ? Colors.white
-                                  : kTextColor,
-                              fontSize: 16.0,
+                          // Second Tab
+                          FlatButton(
+                            height: 35,
+                            minWidth: 126,
+                            color: _controller.index == 1 ? null : Colors.white,
+                            child: Text(
+                              titleList[1],
+                              style: TextStyle(
+                                color: _controller.index == 1
+                                    ? Colors.white
+                                    : kTextColor,
+                                fontSize: 13.0,
+                              ),
                             ),
+                            onPressed: () {
+                              if (_controller.index == 0 ||
+                                  _controller.index == 2) {
+                                setState(() {
+                                  _controller.index = 1;
+                                  supTitle = titleList[_controller.index];
+                                });
+                              }
+                            },
                           ),
-                          onPressed: () {
-                            if (_controller.index == 0 ||
-                                _controller.index == 2) {
-                              setState(() {
-                                _controller.index = 1;
-                                supTitle = titleList[_controller.index];
-                              });
-                            }
-                          },
-                        ),
-                        // Third Tab
-                        FlatButton(
-                          height: 50,
-                          minWidth: 120,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(25),
-                            topLeft: Radius.circular(25),
-                          )),
-                          color: _controller.index == 0 ? null : Colors.white,
-                          child: Text(
-                            titleList[0],
-                            style: TextStyle(
-                              color: _controller.index == 0
-                                  ? Colors.white
-                                  : kTextColor,
-                              fontSize: 16.0,
+                          // Third Tab
+                          FlatButton(
+                            height: 35,
+                            minWidth: 127,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(25),
+                              topLeft: Radius.circular(25),
+                            )),
+                            color: _controller.index == 0 ? null : Colors.white,
+                            child: Text(
+                              titleList[0],
+                              style: TextStyle(
+                                color: _controller.index == 0
+                                    ? Colors.white
+                                    : kTextColor,
+                                fontSize: 13.0,
+                              ),
                             ),
+                            onPressed: () {
+                              if (_controller.index == 2 ||
+                                  _controller.index == 1) {
+                                setState(() {
+                                  _controller.index = 0;
+                                  supTitle = titleList[_controller.index];
+                                });
+                                // Show History Place Screen
+                                showModalBottomSheet(
+                                  context: context,
+                                  isDismissible: false,
+                                  barrierColor: Colors.transparent,
+                                  isScrollControlled: false,
+                                  builder: (context) => HistoryScreen(),
+                                );
+                              }
+                            },
                           ),
-                          onPressed: () {
-                            if (_controller.index == 2 ||
-                                _controller.index == 1) {
-                              setState(() {
-                                _controller.index = 0;
-                                supTitle = titleList[_controller.index];
-                              });
-                              // Show History Place Screen
-                              showModalBottomSheet(
-                                context: context,
-                                isDismissible: false,
-                                barrierColor: Colors.transparent,
-                                isScrollControlled: false,
-                                builder: (context) => HistoryScreen(),
-                              );
-                            }
-                          },
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],

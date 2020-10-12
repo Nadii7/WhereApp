@@ -13,16 +13,16 @@ class DefaultAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: double.infinity,
+      height: 150,
       margin: const EdgeInsets.only(bottom: 25.0),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.2),
             spreadRadius: 1,
-            blurRadius: 2,
-            offset: Offset(0, 4),
+            blurRadius: 1,
+            offset: Offset(0, 2),
           )
         ],
         borderRadius: BorderRadius.only(
@@ -46,12 +46,20 @@ class DefaultAppBar extends StatelessWidget {
             Container(
               child: Badge(
                 elevation: 0,
-                position: BadgePosition(bottom: 17, end: -2),
+                position: BadgePosition.bottomStart(start: 4, bottom: 8),
                 badgeColor: Colors.transparent,
-                badgeContent: Icon(Icons.circle, size: 10.0, color: Colors.red),
+                badgeContent: Container(
+                    width: 11,
+                    height: 11,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(6)),
+                    child: Icon(Icons.circle,
+                        size: 10.0, color: Color(0xffD0021B))),
                 child: SvgPicture.asset(
                   "assets/icons/notificatin.svg",
-                  height: 30,
+                  height: 20,
+                  width: 20,
                 ),
               ),
             ),
@@ -68,20 +76,20 @@ class DefaultAppBar extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       color: kTextColor,
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    height: 4,
+                    height: 8,
                   ),
                   // Sub Title
                   Text(
                     subtitle,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
-                      color: kPrimaryLightColor,
-                      fontSize: 16.0,
+                      color: kTextColor.withOpacity(0.3),
+                      fontSize: 12.0,
                     ),
                   ),
                 ],

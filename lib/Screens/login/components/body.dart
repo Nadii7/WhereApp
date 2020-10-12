@@ -19,7 +19,8 @@ class Body extends StatelessWidget {
           // Logo Pic
           SvgPicture.asset(
             "assets/icons/logo.svg",
-            width: 150,
+            width: 120,
+            // height: 150,
           ),
           // App Name
           Text(
@@ -37,7 +38,7 @@ class Body extends StatelessWidget {
           Text(
             "follow friends,family",
             style: TextStyle(
-              color: Colors.grey,
+              color: Color(0xff1A0C19).withOpacity(0.57),
               fontSize: 16.0,
             ),
           ),
@@ -46,7 +47,7 @@ class Body extends StatelessWidget {
           ),
           // Facebook button
           DefaultButton(
-            color: Colors.lightBlue,
+            color: Color(0xff4891F0),
             text: kfacebookText,
             icon: "assets/icons/facebook.svg",
             // Your Functions Here
@@ -60,22 +61,22 @@ class Body extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
           // Google button
           DefaultButton(
-            color: Colors.pink,
+            color: Color(0xffE34D60),
             text: kgoogleText,
             icon: "assets/icons/google.svg",
             // Your Functions Here
             onPress: () {},
           ),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
           // Apple button
           DefaultButton(
-            color: Colors.black54,
+            color: Color(0xff373737),
             text: kappleText,
             icon: "assets/icons/apple.svg",
             // Your Functions Here
@@ -93,7 +94,7 @@ class Body extends StatelessWidget {
               Text(
                 "استخدامك لهذا التطبيق يعني موافقتك علي",
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Color(0xff9E9E9E),
                   fontSize: 10.0,
                 ),
               ),

@@ -67,7 +67,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
                     subtitle: dataList[0]['suptitle'],
                     widget: SvgPicture.asset(
                       dataList[0]['icon'],
-                      height: 25,
+                      height: 20,
+                      width: 20,
                     ),
                   ),
                   OverViewList(
@@ -76,8 +77,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
                     widget: Text(
                       dataList[1]['icon'],
                       style: TextStyle(
-                        color: kPrimaryLightColor,
-                        fontSize: 20.0,
+                        color: kPrimary2Color.withOpacity(0.2),
+                        fontSize: 18.0,
                       ),
                     ),
                   ),
@@ -87,8 +88,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
                     widget: Text(
                       dataList[2]['icon'],
                       style: TextStyle(
-                        color: kPrimaryLightColor,
-                        fontSize: 20.0,
+                        color: kPrimary2Color.withOpacity(0.2),
+                        fontSize: 18.0,
                       ),
                     ),
                   ),
@@ -96,12 +97,13 @@ class _OverviewScreenState extends State<OverviewScreen> {
                     title: dataList[3]['title'],
                     subtitle: dataList[3]['suptitle'],
                     widget: FlutterSwitch(
-                      width: 60.0,
-                      height: 30.0,
-                      toggleSize: 25.0,
+                      padding: 2,
+                      width: 44.0,
+                      height: 25.0,
+                      toggleSize: 20.0,
                       activeColor: kPrimaryColor,
                       value: dataList[3]['icon'],
-                      borderRadius: 30.0,
+                      borderRadius: 12.0,
                       onToggle: (val) {
                         setState(() {
                           dataList[3]['icon'] = val;
@@ -114,7 +116,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
                     subtitle: dataList[4]['suptitle'],
                     widget: SvgPicture.asset(
                       dataList[4]['icon'],
-                      height: 25,
+                      height: 20,
+                      width: 15,
                     ),
                   ),
                 ],

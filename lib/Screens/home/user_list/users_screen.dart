@@ -44,13 +44,13 @@ class _UserScreenState extends State<UserScreen>
               children: [
                 Container(child: MapListPage()),
                 Container(
-                    margin: EdgeInsets.only(top: 180),
+                    margin: EdgeInsets.only(top: 160),
                     child: FamilyFriendsScreen())
               ],
             ),
             // App Bar
             Container(
-              height: 160,
+              height: 150,
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
@@ -59,79 +59,74 @@ class _UserScreenState extends State<UserScreen>
                     subtitle: "العائلة.الأصدقاء",
                   ),
                   // Tab BAR
-                  Container(
-                    width: 200,
-                    height: 50,
-                    decoration: new BoxDecoration(
-                      gradient: kPrimaryGradientColor,
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 4),
-                        )
-                      ],
-                    ),
-                    // Custom Tab Widget
-                    child: Row(
-                      children: [
-                        // First Tab
-                        FlatButton(
-                          height: 50,
-                          minWidth: 100,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(25),
-                            topLeft: Radius.circular(25),
-                          )),
-                          color: _controller.index == 0 ? null : Colors.white,
-                          child: Text(
-                            "خريطة",
-                            style: TextStyle(
-                              color: _controller.index == 0
-                                  ? Colors.white
-                                  : kTextColor,
-                              fontSize: 16.0,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Container(
+                      width: 150,
+                      height: 35,
+                      decoration: new BoxDecoration(
+                        gradient: kPrimaryGradientColor,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      // Custom Tab Widget
+                      child: Row(
+                        children: [
+                          // First Tab
+                          FlatButton(
+                            height: 35,
+                            minWidth: 75,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(25),
+                              topLeft: Radius.circular(25),
+                            )),
+                            color: _controller.index == 0 ? null : Colors.white,
+                            child: Text(
+                              "خريطة",
+                              style: TextStyle(
+                                color: _controller.index == 0
+                                    ? Colors.white
+                                    : kTextColor,
+                                fontSize: 13.0,
+                              ),
                             ),
+                            onPressed: () {
+                              if (_controller.index == 1) {
+                                setState(() {
+                                  _controller.index = 0;
+                                });
+                              }
+                            },
                           ),
-                          onPressed: () {
-                            if (_controller.index == 1) {
-                              setState(() {
-                                _controller.index = 0;
-                              });
-                            }
-                          },
-                        ),
-                        // Second Tab
-                        FlatButton(
-                          height: 50,
-                          minWidth: 100,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(25),
-                            topRight: Radius.circular(25),
-                          )),
-                          color: _controller.index == 1 ? null : Colors.white,
-                          child: Text(
-                            "قائمة",
-                            style: TextStyle(
-                              color: _controller.index == 1
-                                  ? Colors.white
-                                  : kTextColor,
-                              fontSize: 16.0,
+                          // Second Tab
+                          FlatButton(
+                            height: 35,
+                            minWidth: 75,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(25),
+                              topRight: Radius.circular(25),
+                            )),
+                            color: _controller.index == 1 ? null : Colors.white,
+                            child: Text(
+                              "قائمة",
+                              style: TextStyle(
+                                color: _controller.index == 1
+                                    ? Colors.white
+                                    : kTextColor,
+                                fontSize: 13.0,
+                              ),
                             ),
+                            onPressed: () {
+                              if (_controller.index == 0) {
+                                setState(() {
+                                  _controller.index = 1;
+                                });
+                              }
+                            },
                           ),
-                          onPressed: () {
-                            if (_controller.index == 0) {
-                              setState(() {
-                                _controller.index = 1;
-                              });
-                            }
-                          },
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
