@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// User Map Widget
 class UsersDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class UsersDots extends StatelessWidget {
     );
   }
 }
-
+// Places Map Widget
 class PlacesDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

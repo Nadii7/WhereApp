@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
 
+// Floating Buttons
 class FloatingButtons extends StatelessWidget {
   final bool isClicked;
 
@@ -10,6 +11,7 @@ class FloatingButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      // on Clicked Function
       child: isClicked
           ? Stack(
               alignment: Alignment.bottomCenter,

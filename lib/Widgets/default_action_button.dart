@@ -21,11 +21,13 @@ class DefaultActionButton extends StatelessWidget {
             gradient: kPrimaryGradientColor, shape: BoxShape.circle),
         width: 60,
         height: 60,
+        // Main Buuton
         child: IconButton(
             icon:
                 Icon(isClicked ? Icons.close : Icons.add, color: Colors.white),
             iconSize: 30,
             enableFeedback: true,
+            // Function
             onPressed: onPressed),
       ),
     );

@@ -12,7 +12,9 @@ class PlacesItem extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // Places Page Bottom List
     return GestureDetector(
+      // On Tap Function
       onTap: onTap,
       child: Container(
         height: 75,
@@ -34,6 +36,7 @@ class PlacesItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Icon
             SvgPicture.asset(
               icon,
               width: 18,
@@ -42,6 +45,7 @@ class PlacesItem extends StatelessWidget {
             SizedBox(
               height: 8,
             ),
+            // Title
             Text(
               text,
               style: TextStyle(

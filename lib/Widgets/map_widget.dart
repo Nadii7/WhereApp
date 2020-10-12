@@ -14,7 +14,7 @@ class _MapPageState extends State<MapPage> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
-
+// Just a map
   @override
   Widget build(BuildContext context) {
     return Scaffold(

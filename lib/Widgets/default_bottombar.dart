@@ -5,7 +5,7 @@ import '../constants.dart';
 
 class DefaultBottomBar extends StatelessWidget {
   final int currentPage;
-
+// Bottom Bar 
   const DefaultBottomBar({Key key, @required this.currentPage})
       : super(key: key);
   @override

@@ -23,6 +23,7 @@ class DefaultButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+              // on Pressed Function
           onPressed: onPress,
           color: color,
           child: SizedBox(

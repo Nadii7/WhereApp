@@ -42,9 +42,11 @@ class _UserScreenState extends State<UserScreen>
             TabBarView(
               controller: _controller,
               children: [
+                // Map Page
                 Container(child: MapListPage()),
                 Container(
                     margin: EdgeInsets.only(top: 160),
+                    // Family Frinds Screen
                     child: FamilyFriendsScreen())
               ],
             ),

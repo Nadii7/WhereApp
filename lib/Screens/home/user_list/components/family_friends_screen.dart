@@ -40,10 +40,12 @@ class _FamilyFriendsScreenState extends State<FamilyFriendsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          // List Of Family Mempers
           UsersList(
             title: "العائلة",
             dataList: staticList,
           ),
+          // List Of Friends Mempers
           UsersList(
             title: "الأصدقاء",
             dataList: staticList,

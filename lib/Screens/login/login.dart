@@ -8,9 +8,11 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backGround Color
       backgroundColor: kBgColor,
       body: Stack(
         children: [
+          // backGround Image
           SvgPicture.asset(
             "assets/icons/map_bg.svg",
             fit: BoxFit.fill,
