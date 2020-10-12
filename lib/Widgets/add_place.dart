@@ -77,16 +77,19 @@ class _AddPlaceState extends State<AddPlace> {
                 ),
                 subtitle: Column(
                   children: [
-                    TextField(
+                    Directionality(
                       textDirection: TextDirection.rtl,
-                      cursorColor: kPrimaryColor,
-                      decoration: InputDecoration(
-                        hintText: "أدخل اسم المكان",
-                        // textDirection: TextDirection.rtl,
-                        border: InputBorder.none,
-                        hintStyle: TextStyle(
-                          color: kPrimaryColor.withOpacity(0.3),
-                          fontSize: 12,
+                      child: TextField(
+                        textDirection: TextDirection.rtl,
+                        cursorColor: kPrimaryColor,
+                        decoration: InputDecoration(
+                          hintText: "أدخل اسم المكان",
+                          // textDirection: TextDirection.rtl,
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            color: kPrimaryColor.withOpacity(0.3),
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ),
@@ -114,37 +117,40 @@ class _AddPlaceState extends State<AddPlace> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     textDirection: TextDirection.rtl,
                     children: [
-                      new DropdownButtonFormField(
-                        icon: Icon(Icons.expand_more),
-                        decoration: InputDecoration(
-                          alignLabelWithHint: true,
-                          hintText: "رمز المكان يستخدم للتعبير عن المكان",
-                          hintStyle: TextStyle(
-                            color: kPrimaryColor.withOpacity(0.3),
-                            fontSize: 12,
-                          ),
-                          border: InputBorder.none,
-                        ),
-                        items: dataList.map((e) {
-                          return new DropdownMenuItem<Map<String, String>>(
-                            value: e,
-                            child: Container(
-                              child: Row(
-                                textDirection: TextDirection.rtl,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  new Text(
-                                    e['title'],
-                                    textDirection: TextDirection.rtl,
-                                  ),
-                                  new SvgPicture.asset(e['icon']),
-                                ],
-                              ),
+                      Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: new DropdownButtonFormField(
+                          icon: Icon(Icons.expand_more),
+                          decoration: InputDecoration(
+                            alignLabelWithHint: true,
+                            hintText: "رمز المكان يستخدم للتعبير عن المكان",
+                            hintStyle: TextStyle(
+                              color: kPrimaryColor.withOpacity(0.3),
+                              fontSize: 12,
                             ),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
+                            border: InputBorder.none,
+                          ),
+                          items: dataList.map((e) {
+                            return new DropdownMenuItem<Map<String, String>>(
+                              value: e,
+                              child: Container(
+                                child: Row(
+                                  textDirection: TextDirection.rtl,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    new Text(
+                                      e['title'],
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    new SvgPicture.asset(e['icon']),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (_) {},
+                        ),
                       ),
                     ],
                   ),
