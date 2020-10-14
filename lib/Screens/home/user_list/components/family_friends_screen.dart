@@ -55,32 +55,33 @@ class _FamilyFriendsScreenState extends State<FamilyFriendsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: kBgColor,
-      child: Column(
-        textDirection: TextDirection.rtl,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          // List Of Family Mempers
-          Expanded(
-            flex: 3,
-            child: UsersList(
-              title: "العائلة",
-              dataList: staticList,
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        color: kBgColor,
+        child: Column(
+          textDirection: TextDirection.rtl,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            // List Of Family Mempers
+            Expanded(
+              flex: 3,
+              child: UsersList(
+                title: "العائلة",
+                dataList: staticList,
+              ),
             ),
-          ),
-          // List Of Friends Mempers
-          Expanded(
-            flex: 3,
-            child: UsersList(
-              title: "الأصدقاء",
-              dataList: staticList,
+            // List Of Friends Mempers
+            Expanded(
+              flex: 3,
+              child: UsersList(
+                title: "الأصدقاء",
+                dataList: staticList,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

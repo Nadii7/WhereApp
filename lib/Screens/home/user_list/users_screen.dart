@@ -45,6 +45,7 @@ class _UserScreenState extends State<UserScreen>
                 // Map Page
                 Container(child: MapListPage()),
                 Container(
+                    height: double.infinity,
                     margin: EdgeInsets.only(top: 160),
                     // Family Frinds Screen
                     child: FamilyFriendsScreen())
