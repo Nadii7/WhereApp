@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whereapp_flutter/Screens/home/settings.dart';
 import 'package:whereapp_flutter/Screens/home/user_list/users_screen.dart';
 import 'package:whereapp_flutter/Widgets/default_action_button.dart';
 import 'package:whereapp_flutter/Widgets/default_bottombar.dart';
@@ -17,7 +18,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Bottom Navigation Bar
-      bottomNavigationBar: DefaultBottomBar(currentPage: currentPage),
+      bottomNavigationBar: DefaultBottomBar(
+        currentPage: currentPage,
+        onTap: (newIndex) => setState(() => currentPage = newIndex),
+      ),
       // Floating Action Botton
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: DefaultActionButton(
@@ -30,26 +34,28 @@ class _HomeState extends State<Home> {
         },
       ),
       // Body
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: <Widget>[
-          // Bottom Navigation Page
-          new UserScreen(),
-          // The Transpert Screen
-          IgnorePointer(            
-            child: Container(
-              // comment or change to transparent color
-              color: isClicked
-                  ? Colors.white
-                  : Colors.white.withOpacity(0.0),
-              height: double.infinity,
-              width: double.infinity,
-            ),
-          ),
-          // Floating Buttons
-          new FloatingButtons(isClicked: isClicked)
-        ],
-      ),
+      body: currentPage == 1
+          ? Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                // Bottom Navigation Page
+                new UserScreen(),
+                // The Transpert Screen
+                IgnorePointer(
+                  child: Container(
+                    // comment or change to transparent color
+                    color: isClicked
+                        ? Colors.white
+                        : Colors.white.withOpacity(0.0),
+                    height: double.infinity,
+                    width: double.infinity,
+                  ),
+                ),
+                // Floating Buttons
+                new FloatingButtons(isClicked: isClicked)
+              ],
+            )
+          : SettingsScreen(),
     );
   }
 }

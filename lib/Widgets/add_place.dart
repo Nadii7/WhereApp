@@ -84,7 +84,6 @@ class _AddPlaceState extends State<AddPlace> {
                         cursorColor: kPrimaryColor,
                         decoration: InputDecoration(
                           hintText: "أدخل اسم المكان",
-                          // textDirection: TextDirection.rtl,
                           border: InputBorder.none,
                           hintStyle: TextStyle(
                             color: kPrimaryColor.withOpacity(0.3),
@@ -134,21 +133,26 @@ class _AddPlaceState extends State<AddPlace> {
                             return new DropdownMenuItem<Map<String, String>>(
                               value: e,
                               child: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
                                 child: Row(
-                                  textDirection: TextDirection.rtl,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+                                    new SvgPicture.asset(e['icon']),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
                                     new Text(
                                       e['title'],
                                       textDirection: TextDirection.rtl,
                                     ),
-                                    new SvgPicture.asset(e['icon']),
                                   ],
                                 ),
                               ),
                             );
                           }).toList(),
+                          isExpanded: false,
                           onChanged: (_) {},
                         ),
                       ),

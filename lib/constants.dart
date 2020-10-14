@@ -8,7 +8,7 @@ Color kPrimaryLightColor = kPrimaryColor.withOpacity(0.1);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.bottomLeft,
   end: Alignment.bottomRight,
-  colors: [Color(0xFF7E4D9E),Color(0xFFCA3A80)],
+  colors: [Color(0xFF7E4D9E), Color(0xFFCA3A80)],
 );
 const kTextColor = Color(0xff4D244A);
 const kBgColor = Color(0xffF9F8FB);

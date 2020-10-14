@@ -14,18 +14,42 @@ class _FamilyFriendsScreenState extends State<FamilyFriendsScreen> {
       'city': 'القاهرة',
       'image': "assets/images/avatar.jpeg",
       'isSelected': false,
+      'isSelected2': false,
     },
     {
       'title': 'عدي عاطف',
       'city': 'القاهرة',
       'image': "assets/images/avatar.jpeg",
       'isSelected': true,
+      'isSelected2': false,
     },
     {
       'title': 'عدي عاطف',
       'city': 'القاهرة',
       'image': "assets/images/avatar.jpeg",
       'isSelected': false,
+      'isSelected2': false,
+    },
+    {
+      'title': 'عدي عاطف',
+      'city': 'القاهرة',
+      'image': "assets/images/avatar.jpeg",
+      'isSelected': false,
+      'isSelected2': false,
+    },
+    {
+      'title': 'عدي عاطف',
+      'city': 'القاهرة',
+      'image': "assets/images/avatar.jpeg",
+      'isSelected': true,
+      'isSelected2': false,
+    },
+    {
+      'title': 'عدي عاطف',
+      'city': 'القاهرة',
+      'image': "assets/images/avatar.jpeg",
+      'isSelected': false,
+      'isSelected2': false,
     },
   ];
 
@@ -41,14 +65,20 @@ class _FamilyFriendsScreenState extends State<FamilyFriendsScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           // List Of Family Mempers
-          UsersList(
-            title: "العائلة",
-            dataList: staticList,
+          Expanded(
+            flex: 3,
+            child: UsersList(
+              title: "العائلة",
+              dataList: staticList,
+            ),
           ),
           // List Of Friends Mempers
-          UsersList(
-            title: "الأصدقاء",
-            dataList: staticList,
+          Expanded(
+            flex: 3,
+            child: UsersList(
+              title: "الأصدقاء",
+              dataList: staticList,
+            ),
           ),
         ],
       ),

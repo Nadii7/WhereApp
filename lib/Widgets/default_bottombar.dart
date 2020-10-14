@@ -5,17 +5,19 @@ import '../constants.dart';
 
 class DefaultBottomBar extends StatelessWidget {
   final int currentPage;
-// Bottom Bar 
-  const DefaultBottomBar({Key key, @required this.currentPage})
+  final Function onTap;
+// Bottom Bar
+  const DefaultBottomBar({Key key, @required this.currentPage, this.onTap})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.white,
       currentIndex: currentPage,
+      onTap: onTap,
       selectedItemColor: kTextColor,
-      iconSize: 30,
-      selectedFontSize: 16,
-      unselectedFontSize: 16,
+      selectedFontSize: 12,
+      unselectedFontSize: 12,
       selectedIconTheme: IconThemeData(
         color: kPrimaryColor,
       ),
@@ -25,18 +27,30 @@ class DefaultBottomBar extends StatelessWidget {
       unselectedItemColor: kPrimaryLightColor,
       items: [
         BottomNavigationBarItem(
-            icon: new Icon(
-              Icons.settings,
+            icon: Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: new SvgPicture.asset(
+                currentPage == 0
+                    ? "assets/icons/settings.svg"
+                    : "assets/icons/d_settings.svg",
+                height: 20,
+                width: 20,
+              ),
             ),
             label: "الاعدادات"),
         BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: new SvgPicture.asset(
-                "assets/icons/users.svg",
-              ),
+          icon: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: new SvgPicture.asset(
+              currentPage == 1
+                  ? "assets/icons/users.svg"
+                  : "assets/icons/d_users.svg",
+              height: 20,
+              width: 20,
             ),
-            label: "المستخدمين"),
+          ),
+          label: "المستخدمين",
+        ),
       ],
     );
   }

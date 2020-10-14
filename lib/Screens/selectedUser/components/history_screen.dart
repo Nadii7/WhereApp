@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:whereapp_flutter/Widgets/map_widget.dart';
 import 'package:whereapp_flutter/constants.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -47,125 +48,134 @@ class _HistoryScreenState extends State<HistoryScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 100,
-      color: Colors.white,
-      padding: EdgeInsets.only(bottom: 15, left: 11, right: 11),
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        MapPage(),
+        Container(
+          height: 120,
+          color: Colors.white,
+          width: double.infinity,
+          padding: EdgeInsets.only(bottom: 10, left: 11, right: 11),
+          child: Column(
             children: [
-              //first Data picker
-              FlatButton(
-                height: 24,
-                minWidth: 100,
-                onPressed: () => _selectDate(context),
-                color: kBgColor,
-                padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "${selectedDate.toLocal()}".split(' ')[0],
-                      style: TextStyle(color: kTextColor, fontSize: 11),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //first Data picker
+                  FlatButton(
+                    height: 24,
+                    minWidth: 100,
+                    onPressed: () => _selectDate(context),
+                    color: kBgColor,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 11, vertical: 4),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "${selectedDate.toLocal()}".split(' ')[0],
+                          style: TextStyle(color: kTextColor, fontSize: 11),
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Icon(
+                          Icons.expand_more,
+                          size: 20,
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      width: 4,
+                  ),
+                  // Buttons
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // previous button
+                        IconButton(
+                            icon: SvgPicture.asset(
+                              "assets/icons/previous.svg",
+                              height: 14,
+                              width: 16,
+                            ),
+                            onPressed: () {
+                              controller.stop();
+                            }),
+                        // start button
+                        IconButton(
+                            icon: SvgPicture.asset(
+                              "assets/icons/play.svg",
+                              height: 17,
+                              width: 12,
+                            ),
+                            onPressed: () {
+                              controller.forward();
+                            }),
+                        // next button
+                        IconButton(
+                            icon: SvgPicture.asset(
+                              "assets/icons/next.svg",
+                              height: 14,
+                              width: 16,
+                            ),
+                            onPressed: () {
+                              controller.repeat();
+                            }),
+                      ],
                     ),
-                    Icon(
-                      Icons.expand_more,
-                      size: 20,
+                  ),
+                  //Second Data picker
+                  FlatButton(
+                    height: 24,
+                    minWidth: 100,
+                    onPressed: () => _selectDate(context),
+                    color: kBgColor,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 11, vertical: 4),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "${selectedDate.toLocal()}".split(' ')[0],
+                          style: TextStyle(
+                            color: kTextColor,
+                            fontSize: 11,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Icon(
+                          Icons.expand_more,
+                          size: 20,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              // Buttons
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // previous button
-                    IconButton(
-                        icon: SvgPicture.asset(
-                          "assets/icons/previous.svg",
-                          height: 14,
-                          width: 16,
-                        ),
-                        onPressed: () {
-                          controller.stop();
-                        }),
-                    // start button
-                    IconButton(
-                        icon: SvgPicture.asset(
-                          "assets/icons/play.svg",
-                          height: 17,
-                          width: 12,
-                        ),
-                        onPressed: () {
-                          controller.forward();
-                        }),
-                    // next button
-                    IconButton(
-                        icon: SvgPicture.asset(
-                          "assets/icons/next.svg",
-                          height: 14,
-                          width: 16,
-                        ),
-                        onPressed: () {
-                          controller.repeat();
-                        }),
-                  ],
-                ),
-              ),
-              //Second Data picker
-              FlatButton(
-                height: 24,
-                minWidth: 100,
-                onPressed: () => _selectDate(context),
-                color: kBgColor,
-                padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "${selectedDate.toLocal()}".split(' ')[0],
-                      style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 11,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Icon(
-                      Icons.expand_more,
-                      size: 20,
-                    ),
-                  ],
+              // Progress Bar
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 5.5),
+                child: LinearProgressIndicator(
+                  value: animation.value,
+                  backgroundColor: kPrimaryLightColor,
+                  minHeight: 6,
+                  valueColor:
+                      new AlwaysStoppedAnimation<Color>(kPrimaryColor),
                 ),
               ),
             ],
           ),
-          // Progress Bar
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 5.5),
-            child: LinearProgressIndicator(
-              value: animation.value,
-              backgroundColor: kPrimaryLightColor,
-              minHeight: 6,
-              valueColor: new AlwaysStoppedAnimation<Color>(kPrimaryColor),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -20,12 +20,13 @@ class UsersList extends StatefulWidget {
 class _UsersListState extends State<UsersList> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SingleChildScrollView(
+    return SizedBox(
+      height: double.infinity,
+      child: Expanded(
         child: Column(
           textDirection: TextDirection.rtl,
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // Title
             Container(
@@ -50,13 +51,12 @@ class _UsersListState extends State<UsersList> {
               ),
             ),
             // List of Users
-            ListView.builder(
-              padding: EdgeInsets.zero,
-              shrinkWrap: true,
-              itemCount: widget.dataList.length,
-              itemBuilder: (context, index) => SizedBox(
-                height: 80,
-                child: Column(
+            Expanded(
+                          child: ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                itemCount: widget.dataList.length,
+                itemBuilder: (context, index) => Column(
                   children: [
                     ListTile(
                       // Name
@@ -75,51 +75,50 @@ class _UsersListState extends State<UsersList> {
                         ),
                       ),
                       // Icons
-                      leading: widget.dataList[index]['isSelected']
-                          ? Container(
-                              height: double.infinity,
-                              width: 50,
-                              margin: EdgeInsets.only(left: 5),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/icons/a_notificatin.svg",
-                                    height: 15,
-                                    width: 15,
-                                  ),
-                                  SizedBox(width: 15),
-                                  SvgPicture.asset(
-                                    "assets/icons/locate.svg",
-                                    height: 10,
-                                    width: 15,
-                                  ),
-                                ],
-                              ),
-                            )
-                          : Container(
-                              height: double.infinity,
-                              width: 50,
-                              margin: EdgeInsets.only(left: 5),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/icons/d_notificatin.svg",
-                                    height: 15,
-                                    width: 15,
-                                  ),
-                                  SizedBox(width: 15),
-                                  SvgPicture.asset(
-                                    "assets/icons/d_locate.svg",
-                                    height: 10,
-                                    width: 15,
-                                  ),
-                                ],
+                      leading: Container(
+                        height: double.infinity,
+                        width: 50,
+                        margin: EdgeInsets.only(left: 5),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            // Active and deActive buttons
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  widget.dataList[index]['isSelected'] =
+                                      !widget.dataList[index]['isSelected'];
+                                });
+                              },
+                              child: SvgPicture.asset(
+                                widget.dataList[index]['isSelected']
+                                    ? "assets/icons/a_notificatin.svg"
+                                    : "assets/icons/d_notificatin.svg",
+                                height: 15,
+                                width: 15,
                               ),
                             ),
+                            SizedBox(width: 15),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  widget.dataList[index]['isSelected2'] =
+                                      !widget.dataList[index]['isSelected2'];
+                                });
+                              },
+                              child: SvgPicture.asset(
+                                widget.dataList[index]['isSelected2']
+                                    ? "assets/icons/locate.svg"
+                                    : "assets/icons/d_locate.svg",
+                                height: 10,
+                                width: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
                       // Avatar and Online Dot
                       trailing: Container(
                         child: Stack(
@@ -166,12 +165,14 @@ class _UsersListState extends State<UsersList> {
                         );
                       },
                     ),
-                    Divider(
-                      indent: 20,
-                      endIndent: 20,
-                      height: 1.0,
-                      color: kPrimaryLightColor,
-                    ),
+                    index == widget.dataList.length - 1
+                        ? SizedBox()
+                        : Divider(
+                            indent: 20,
+                            endIndent: 20,
+                            height: 1.0,
+                            color: kPrimaryLightColor,
+                          ),
                   ],
                 ),
               ),

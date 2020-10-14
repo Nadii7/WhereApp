@@ -47,8 +47,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
       children: [
         // Map Container
         Expanded(
-          child: MapPage(),
-        ),
+            child: MapPage(),
+            ),
         // Overview List Container
         Container(
           color: Color(0xff757575),
@@ -96,19 +96,22 @@ class _OverviewScreenState extends State<OverviewScreen> {
                   OverViewList(
                     title: dataList[3]['title'],
                     subtitle: dataList[3]['suptitle'],
-                    widget: FlutterSwitch(
-                      padding: 2,
-                      width: 44.0,
-                      height: 25.0,
-                      toggleSize: 20.0,
-                      activeColor: kPrimaryColor,
-                      value: dataList[3]['icon'],
-                      borderRadius: 12.0,
-                      onToggle: (val) {
-                        setState(() {
-                          dataList[3]['icon'] = val;
-                        });
-                      },
+                    widget: Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: FlutterSwitch(
+                        padding: 2,
+                        width: 44.0,
+                        height: 25.0,
+                        toggleSize: 20.0,
+                        activeColor: kPrimaryColor,
+                        value: dataList[3]['icon'],
+                        borderRadius: 12.0,
+                        onToggle: (val) {
+                          setState(() {
+                            dataList[3]['icon'] = val;
+                          });
+                        },
+                      ),
                     ),
                   ),
                   OverViewList(

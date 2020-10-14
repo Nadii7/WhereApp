@@ -19,6 +19,7 @@ dependencies:
   flutter_svg:
   flutter_switch:
   badges:
+  settings_ui:
   google_maps_flutter:
   flutter_launcher_icons:
 

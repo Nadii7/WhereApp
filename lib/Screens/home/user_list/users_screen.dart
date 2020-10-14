@@ -64,10 +64,14 @@ class _UserScreenState extends State<UserScreen>
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Container(
-                      width: 150,
+                      width: 150.4,
                       height: 35,
                       decoration: new BoxDecoration(
                         gradient: kPrimaryGradientColor,
+                        border: Border.all(
+                          color: Color(0xff3B1D81).withOpacity(0.1),
+                          width: 0.2,
+                        ),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       // Custom Tab Widget

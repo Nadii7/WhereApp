@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:whereapp_flutter/Screens/home/home.dart';
+import 'package:whereapp_flutter/Screens/login/terms.dart';
 import 'package:whereapp_flutter/Widgets/default_button.dart';
 import 'package:whereapp_flutter/constants.dart';
 
@@ -100,7 +101,14 @@ class Body extends StatelessWidget {
               ),
               GestureDetector(
                 // Your Function Here
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TermsConditionScreen(),
+                    ),
+                  );
+                },
                 child: Text(
                   "شروط الاستخدام والخصوصية",
                   style: TextStyle(

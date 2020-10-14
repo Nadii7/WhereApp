@@ -3,7 +3,6 @@ import 'package:whereapp_flutter/Screens/selectedUser/components/history_screen.
 import 'package:whereapp_flutter/Screens/selectedUser/components/overview_screen.dart';
 import 'package:whereapp_flutter/Screens/selectedUser/components/places_screen.dart';
 import 'package:whereapp_flutter/Widgets/default_appbar.dart';
-import 'package:whereapp_flutter/Widgets/map_widget.dart';
 import 'package:whereapp_flutter/constants.dart';
 
 class SelectedUserList extends StatefulWidget {
@@ -54,7 +53,7 @@ class _SelectedUserListState extends State<SelectedUserList>
               child: TabBarView(
                 controller: _controller,
                 children: [
-                  Container(child: MapPage()),
+                  HistoryScreen(),
                   PlacesScreen(),
                   OverviewScreen(),
                 ],
@@ -76,37 +75,25 @@ class _SelectedUserListState extends State<SelectedUserList>
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Container(
-                      width: 380,
+                      width: 361,
                       height: 35,
                       decoration: new BoxDecoration(
-                        gradient: kPrimaryGradientColor,
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          color: Color(0xff3B1D81).withOpacity(0.1),
+                          width: 0.5,
+                        ),
                       ),
                       // Custom Tab Widget
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         textDirection: TextDirection.rtl,
                         children: [
+                          Spacer(),
                           // First Tab
-                          FlatButton(
-                            height: 35,
-                            minWidth: 127,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(25),
-                              topRight: Radius.circular(25),
-                            )),
-                            color: _controller.index == 2 ? null : Colors.white,
-                            child: Text(
-                              titleList[2],
-                              style: TextStyle(
-                                color: _controller.index == 2
-                                    ? Colors.white
-                                    : kTextColor,
-                                fontSize: 13.0,
-                              ),
-                            ),
-                            onPressed: () {
+                          InkWell(
+                            onTap: () {
                               if (_controller.index == 1 ||
                                   _controller.index == 0) {
                                 setState(() {
@@ -115,22 +102,33 @@ class _SelectedUserListState extends State<SelectedUserList>
                                 });
                               }
                             },
-                          ),
-                          // Second Tab
-                          FlatButton(
-                            height: 35,
-                            minWidth: 126,
-                            color: _controller.index == 1 ? null : Colors.white,
-                            child: Text(
-                              titleList[1],
-                              style: TextStyle(
-                                color: _controller.index == 1
-                                    ? Colors.white
-                                    : kTextColor,
-                                fontSize: 13.0,
+                            child: Container(
+                              height: 35,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(25),
+                                  topRight: Radius.circular(25),
+                                ),
+                                gradient: _controller.index == 2
+                                    ? kPrimaryGradientColor
+                                    : null,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                titleList[2],
+                                style: TextStyle(
+                                  color: _controller.index == 2
+                                      ? Colors.white
+                                      : kTextColor,
+                                  fontSize: 13.0,
+                                ),
                               ),
                             ),
-                            onPressed: () {
+                          ),
+                          // Second Tab
+                          InkWell(
+                            onTap: () {
                               if (_controller.index == 0 ||
                                   _controller.index == 2) {
                                 setState(() {
@@ -139,44 +137,62 @@ class _SelectedUserListState extends State<SelectedUserList>
                                 });
                               }
                             },
-                          ),
-                          // Third Tab
-                          FlatButton(
-                            height: 35,
-                            minWidth: 127,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(25),
-                              topLeft: Radius.circular(25),
-                            )),
-                            color: _controller.index == 0 ? null : Colors.white,
-                            child: Text(
-                              titleList[0],
-                              style: TextStyle(
-                                color: _controller.index == 0
-                                    ? Colors.white
-                                    : kTextColor,
-                                fontSize: 13.0,
+                            child: Container(
+                              height: 35,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                gradient: _controller.index == 1
+                                    ? kPrimaryGradientColor
+                                    : null,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                titleList[1],
+                                style: TextStyle(
+                                  color: _controller.index == 1
+                                      ? Colors.white
+                                      : kTextColor,
+                                  fontSize: 13.0,
+                                ),
                               ),
                             ),
-                            onPressed: () {
+                          ),
+                          // Third Tab
+                          InkWell(
+                            onTap: () {
                               if (_controller.index == 2 ||
                                   _controller.index == 1) {
                                 setState(() {
                                   _controller.index = 0;
                                   supTitle = titleList[_controller.index];
                                 });
-                                // Show History Place Screen
-                                showModalBottomSheet(
-                                  context: context,
-                                  isDismissible: false,
-                                  barrierColor: Colors.transparent,
-                                  isScrollControlled: false,
-                                  builder: (context) => HistoryScreen(),
-                                );
                               }
                             },
+                            child: Container(
+                              height: 35,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(25),
+                                  topLeft: Radius.circular(25),
+                                ),
+                                gradient: _controller.index == 0
+                                    ? kPrimaryGradientColor
+                                    : null,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                titleList[0],
+                                style: TextStyle(
+                                  color: _controller.index == 0
+                                      ? Colors.white
+                                      : kTextColor,
+                                  fontSize: 13.0,
+                                ),
+                              ),
+                            ),
                           ),
+                          Spacer(),
                         ],
                       ),
                     ),
