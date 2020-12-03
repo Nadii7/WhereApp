@@ -1,8 +1,6 @@
 # Where App
 
-A new Flutter UI project.
-
-I made this project to learn more about Google Maps in flutter.
+I made this project to learn more about Google Maps, Stack And List View in flutter.
 
 
 ![](assets/images/whereapp1.png)
