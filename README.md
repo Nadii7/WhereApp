@@ -1,6 +1,23 @@
-# whereapp_flutter
+# Where App
 
 A new Flutter project.
+
+![](whereapp.png)
+
+
+# In this project I did learn to work with:
+
+- State Management by Provider Package.
+
+- Providers, Consumers and Models.
+
+- HTTP Requests, APIS and JSON.
+
+- Shared Preferences.
+
+- Authentication.
+
+- Animations.
 
 ## Getting Started
 
