@@ -1,23 +1,24 @@
 # Where App
 
-A new Flutter project.
+A new Flutter UI project.
 
-![](whereapp1.png)
+I made this project to learn more about Google Maps in flutter.
 
-![](whereapp2.png)
+
+![](assets/images/whereapp1.png)
+
+![](assets/images/whereapp2.png)
 
 
 # In this project I did learn to work with:
 
-- State Management by Provider Package.
+- Stack.
 
-- Providers, Consumers and Models.
+- Tab Bar And Page View.
 
-- HTTP Requests, APIS and JSON.
+- List View.
 
-- Shared Preferences.
-
-- Authentication.
+- Google Maps.
 
 - Animations.
 
